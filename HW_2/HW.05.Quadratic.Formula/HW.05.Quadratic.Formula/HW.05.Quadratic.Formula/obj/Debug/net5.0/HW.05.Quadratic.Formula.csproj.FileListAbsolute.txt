@@ -1,0 +1,16 @@
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_2\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\bin\Debug\net5.0\HW.05.Quadratic.Formula.exe
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_2\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\bin\Debug\net5.0\HW.05.Quadratic.Formula.deps.json
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_2\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\bin\Debug\net5.0\HW.05.Quadratic.Formula.runtimeconfig.json
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_2\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\bin\Debug\net5.0\HW.05.Quadratic.Formula.runtimeconfig.dev.json
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_2\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\bin\Debug\net5.0\HW.05.Quadratic.Formula.dll
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_2\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\bin\Debug\net5.0\ref\HW.05.Quadratic.Formula.dll
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_2\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\bin\Debug\net5.0\HW.05.Quadratic.Formula.pdb
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_2\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\obj\Debug\net5.0\HW.05.Quadratic.Formula.csproj.AssemblyReference.cache
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_2\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\obj\Debug\net5.0\HW.05.Quadratic.Formula.GeneratedMSBuildEditorConfig.editorconfig
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_2\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\obj\Debug\net5.0\HW.05.Quadratic.Formula.AssemblyInfoInputs.cache
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_2\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\obj\Debug\net5.0\HW.05.Quadratic.Formula.AssemblyInfo.cs
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_2\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\obj\Debug\net5.0\HW.05.Quadratic.Formula.csproj.CoreCompileInputs.cache
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_2\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\obj\Debug\net5.0\HW.05.Quadratic.Formula.dll
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_2\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\obj\Debug\net5.0\ref\HW.05.Quadratic.Formula.dll
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_2\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\obj\Debug\net5.0\HW.05.Quadratic.Formula.pdb
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_2\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\HW.05.Quadratic.Formula\obj\Debug\net5.0\HW.05.Quadratic.Formula.genruntimeconfig.cache
