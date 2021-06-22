@@ -14,7 +14,7 @@ namespace HW._05.Quadratic.Formula
             double c = Convert.ToDouble(Console.ReadLine());
 
             double D = ((Math.Pow(b, 2)) - 4 * a * c);
-            
+
             if (D < 0)
             {
                 Console.WriteLine("The discriminant is less than zero. No solutions");
@@ -32,9 +32,6 @@ namespace HW._05.Quadratic.Formula
                 Console.WriteLine($"The discriminant is greater than zero. The equation has two roots: x_1 = {x_1}, x_2 = {x_2}");
                 Console.ReadKey();
             }
-
-
-
         }
     }
 }
