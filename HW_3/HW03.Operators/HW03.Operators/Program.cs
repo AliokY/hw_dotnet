@@ -4,10 +4,8 @@ namespace HW03.Operators
 {
     class Program
     {
-        private static int Sum1()
+        private static void GetTwoIntegers(out int num1, out int num2)
         {
-            int num1, num2;
-
             while (true)
             {
                 Console.WriteLine("Please, enter the first integer");
@@ -25,19 +23,13 @@ namespace HW03.Operators
                 else
                 {
                     Console.WriteLine("Incorrect input. Please, try again!");
-
                     continue;
                 }
             }
-            int sum = num1 + num2;
-
-            return sum;
         }
 
-        private static void Sum2(out int sumInput, out int sum)
+        private static void CheckTheAnswer(int operationResult, out int sumInput)
         {
-            sum = Sum1();
-
             bool res3;
 
             do
@@ -60,42 +52,128 @@ namespace HW03.Operators
             string right = "Your answer is correct!";
             string wrong = "Your answer is wrong!";
 
-            string answer = sum == sumInput ? right : wrong;
+            string answer = operationResult == sumInput ? right : wrong;
 
             Console.WriteLine(answer);
-            Console.WriteLine("Press any key to see more information or exit");
+            Console.WriteLine("Press any key to get more information or exit");
             Console.ReadLine();
         }
 
-        private static void Sum3()
+        private static void CompareTheAnswer(int sumInput, int operationResult)
         {
-            Sum2(out int sumInput, out int sum);
-
-            if (sumInput != sum)
+            if (sumInput != operationResult)
             {
                 string more = "The result must be greater!";
                 string less = "The result must be less";
 
-                string wrongAnswer = sumInput > sum ? less : more;
+                string wrongAnswer = sumInput > operationResult ? less : more;
 
                 Console.WriteLine(wrongAnswer);
                 Console.ReadLine();
             }
         }
 
+        private static int GetOperationResult(int num1, int num2, char operation)
+        {
+            int operationResult = operation == '+' ? (num1 + num2) : (num1 - num2);
+
+            return operationResult;
+        }
+
+        private static char DefineThetypeOfOperation()
+        {
+            Console.WriteLine("Please, input \"-\" or \"+\" to define the type of operation:");
+
+            char operation;
+
+            string operationInput;
+
+            while (true)
+            {
+                operationInput = Console.ReadLine();
+
+                bool result = char.TryParse(operationInput, out operation);
+
+                if (!result)
+                {
+                    Console.WriteLine("Incorerrest input! Enter one symbol!");
+                    continue;
+                }
+                if (operation != '+' && operation != '-')
+                {
+                    Console.WriteLine("Incorerrest input! Enter \"-\" or \"+\"!");
+                    continue;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            return operation;
+        }
+
+
+
+        private static void Task1()
+        {
+            GetTwoIntegers(out int num1, out int num2);
+            char operation = '+';
+            int operationResult = GetOperationResult(num1, num2, operation);
+
+            Console.Write("The sum is ");
+            Console.WriteLine(operationResult);
+            Console.WriteLine("Press any key to exit");
+            Console.ReadKey();
+        }
+
+        private static void Task2()
+        {
+            GetTwoIntegers(out int num1, out int num2);
+
+            char operation = '+';
+
+            int operationResult = GetOperationResult(num1, num2, operation);
+
+            CheckTheAnswer(operationResult, out int sumInput);
+        }
+
+        private static void Task3()
+        {
+            GetTwoIntegers(out int num1, out int num2);
+
+            char operation = '+';
+
+            int operationResult = GetOperationResult(num1, num2, operation);
+
+            CheckTheAnswer(operationResult, out int sumInput);
+
+            CompareTheAnswer(sumInput, operationResult);
+        }
+
+        private static void Task4()
+        {
+            GetTwoIntegers(out int num1, out int num2);
+
+            char operation = DefineThetypeOfOperation();
+
+            int operationResult = GetOperationResult(num1, num2, operation);
+
+            CheckTheAnswer(operationResult, out int sumInput);
+
+            CompareTheAnswer(sumInput, operationResult);
+        }
+
         static void Main(string[] args)
         {
-            // Calling the first method
-            //int sum = Sum1();
-            //Console.Write("The sum is ");
-            //Console.WriteLine(sum);
-            //Console.ReadKey();
+            // To complete each task, you need to remove the comment from the corresponding method, and comment out the rest
 
-            // Calling the second method
-            //Sum2(out int sumInput, out int sum);
+            //Task1();
 
-            // Calling the third method
-            Sum3();
+            //Task2();
+
+            //Task3();
+
+            Task4();
         }
     }
 }
