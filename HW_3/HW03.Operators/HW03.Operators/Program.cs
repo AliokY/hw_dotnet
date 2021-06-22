@@ -34,11 +34,9 @@ namespace HW03.Operators
             return sum;
         }
 
-        private static void Sum2()
+        private static void Sum2(out int sumInput, out int sum)
         {
-            int sumInput;
-
-            int sum = Sum1();
+            sum = Sum1();
 
             bool res3;
 
@@ -65,7 +63,24 @@ namespace HW03.Operators
             string answer = sum == sumInput ? right : wrong;
 
             Console.WriteLine(answer);
+            Console.WriteLine("Press any key to see more information or exit");
             Console.ReadLine();
+        }
+
+        private static void Sum3()
+        {
+            Sum2(out int sumInput, out int sum);
+
+            if (sumInput != sum)
+            {
+                string more = "The result must be greater!";
+                string less = "The result must be less";
+
+                string wrongAnswer = sumInput > sum ? less : more;
+
+                Console.WriteLine(wrongAnswer);
+                Console.ReadLine();
+            }
         }
 
         static void Main(string[] args)
@@ -77,7 +92,10 @@ namespace HW03.Operators
             //Console.ReadKey();
 
             // Calling the second method
-            Sum2();
+            //Sum2(out int sumInput, out int sum);
+
+            // Calling the third method
+            Sum3();
         }
     }
 }
