@@ -17,7 +17,6 @@ namespace HW04.Task4
                 linesVerse[i] = linesVerse[i].Replace("о", "а");
                 linesVerse[i] = linesVerse[i].Replace("О", "А");
             }
-
             foreach (string line in linesVerse)
             {
                 Console.WriteLine(line);
