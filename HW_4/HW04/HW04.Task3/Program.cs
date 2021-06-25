@@ -18,14 +18,20 @@ namespace HW04.Task3
             Stopwatch sw = new Stopwatch();
             sw.Start();
             int k = 1;
-            for (long i = 0; i < randomArray.Length; i++)
+            long temp;
+            for (int i = 0; i < randomArray.Length / 2; i++)
             {
                 {
+                    temp = randomArray[i];
+
                     randomArray[i] = randomArray[randomArray.Length - k];
+
+                    randomArray[randomArray.Length - k] = temp;
 
                     k++;
                 }
             }
+
             sw.Stop();
             Console.Write("Runtime of my reverse method: ");
             Console.WriteLine(sw.Elapsed.TotalMilliseconds + " ms");
