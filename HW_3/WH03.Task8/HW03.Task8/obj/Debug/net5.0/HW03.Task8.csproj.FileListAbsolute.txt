@@ -1,0 +1,15 @@
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\WH03.Task8\HW03.Task8\bin\Debug\net5.0\HW03.Task8.exe
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\WH03.Task8\HW03.Task8\bin\Debug\net5.0\HW03.Task8.deps.json
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\WH03.Task8\HW03.Task8\bin\Debug\net5.0\HW03.Task8.runtimeconfig.json
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\WH03.Task8\HW03.Task8\bin\Debug\net5.0\HW03.Task8.runtimeconfig.dev.json
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\WH03.Task8\HW03.Task8\bin\Debug\net5.0\HW03.Task8.dll
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\WH03.Task8\HW03.Task8\bin\Debug\net5.0\ref\HW03.Task8.dll
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\WH03.Task8\HW03.Task8\bin\Debug\net5.0\HW03.Task8.pdb
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\WH03.Task8\HW03.Task8\obj\Debug\net5.0\HW03.Task8.GeneratedMSBuildEditorConfig.editorconfig
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\WH03.Task8\HW03.Task8\obj\Debug\net5.0\HW03.Task8.AssemblyInfoInputs.cache
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\WH03.Task8\HW03.Task8\obj\Debug\net5.0\HW03.Task8.AssemblyInfo.cs
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\WH03.Task8\HW03.Task8\obj\Debug\net5.0\HW03.Task8.csproj.CoreCompileInputs.cache
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\WH03.Task8\HW03.Task8\obj\Debug\net5.0\HW03.Task8.dll
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\WH03.Task8\HW03.Task8\obj\Debug\net5.0\ref\HW03.Task8.dll
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\WH03.Task8\HW03.Task8\obj\Debug\net5.0\HW03.Task8.pdb
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\WH03.Task8\HW03.Task8\obj\Debug\net5.0\HW03.Task8.genruntimeconfig.cache
