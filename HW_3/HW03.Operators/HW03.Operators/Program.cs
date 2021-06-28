@@ -112,8 +112,6 @@ namespace HW03.Operators
             return operation;
         }
 
-
-
         private static void Task1()
         {
             GetTwoIntegers(out int num1, out int num2);

@@ -1,0 +1,16 @@
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_4\HW04\HW04.Task3\bin\Debug\net5.0\HW04.Task3.exe
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_4\HW04\HW04.Task3\bin\Debug\net5.0\HW04.Task3.deps.json
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_4\HW04\HW04.Task3\bin\Debug\net5.0\HW04.Task3.runtimeconfig.json
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_4\HW04\HW04.Task3\bin\Debug\net5.0\HW04.Task3.runtimeconfig.dev.json
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_4\HW04\HW04.Task3\bin\Debug\net5.0\HW04.Task3.dll
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_4\HW04\HW04.Task3\bin\Debug\net5.0\ref\HW04.Task3.dll
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_4\HW04\HW04.Task3\bin\Debug\net5.0\HW04.Task3.pdb
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_4\HW04\HW04.Task3\obj\Debug\net5.0\HW04.Task3.csproj.AssemblyReference.cache
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_4\HW04\HW04.Task3\obj\Debug\net5.0\HW04.Task3.GeneratedMSBuildEditorConfig.editorconfig
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_4\HW04\HW04.Task3\obj\Debug\net5.0\HW04.Task3.AssemblyInfoInputs.cache
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_4\HW04\HW04.Task3\obj\Debug\net5.0\HW04.Task3.AssemblyInfo.cs
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_4\HW04\HW04.Task3\obj\Debug\net5.0\HW04.Task3.csproj.CoreCompileInputs.cache
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_4\HW04\HW04.Task3\obj\Debug\net5.0\HW04.Task3.dll
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_4\HW04\HW04.Task3\obj\Debug\net5.0\ref\HW04.Task3.dll
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_4\HW04\HW04.Task3\obj\Debug\net5.0\HW04.Task3.pdb
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_4\HW04\HW04.Task3\obj\Debug\net5.0\HW04.Task3.genruntimeconfig.cache
