@@ -1,0 +1,15 @@
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Movement\HW03.Movement\bin\Debug\net5.0\HW03.Movement.exe
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Movement\HW03.Movement\bin\Debug\net5.0\HW03.Movement.deps.json
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Movement\HW03.Movement\bin\Debug\net5.0\HW03.Movement.runtimeconfig.json
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Movement\HW03.Movement\bin\Debug\net5.0\HW03.Movement.runtimeconfig.dev.json
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Movement\HW03.Movement\bin\Debug\net5.0\HW03.Movement.dll
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Movement\HW03.Movement\bin\Debug\net5.0\ref\HW03.Movement.dll
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Movement\HW03.Movement\bin\Debug\net5.0\HW03.Movement.pdb
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Movement\HW03.Movement\obj\Debug\net5.0\HW03.Movement.GeneratedMSBuildEditorConfig.editorconfig
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Movement\HW03.Movement\obj\Debug\net5.0\HW03.Movement.AssemblyInfoInputs.cache
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Movement\HW03.Movement\obj\Debug\net5.0\HW03.Movement.AssemblyInfo.cs
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Movement\HW03.Movement\obj\Debug\net5.0\HW03.Movement.csproj.CoreCompileInputs.cache
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Movement\HW03.Movement\obj\Debug\net5.0\HW03.Movement.dll
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Movement\HW03.Movement\obj\Debug\net5.0\ref\HW03.Movement.dll
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Movement\HW03.Movement\obj\Debug\net5.0\HW03.Movement.pdb
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Movement\HW03.Movement\obj\Debug\net5.0\HW03.Movement.genruntimeconfig.cache
