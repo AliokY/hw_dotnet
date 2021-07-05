@@ -4,6 +4,17 @@ namespace MotorcycleManufacturer
 {
     internal class Motorcycle
     {
+        public Motorcycle(string model, string manufacturer, int mileage)
+        {
+            id = Guid.NewGuid();
+
+            Model = model;
+
+            Manufacturer = manufacturer;
+
+            Mileage = mileage;
+        }
+
         private Guid id;
         public Guid Id
         {
@@ -93,19 +104,18 @@ namespace MotorcycleManufacturer
         {
             Console.WriteLine("Settings reseted");
         }
-
-        public Motorcycle(string model, string manufacturer, int mileage)
-        {
-            id = Guid.NewGuid();
-
-            Model = model;
-
-            Manufacturer = manufacturer;
-
-            Mileage = mileage;
-        }
+        
         internal class Engine
         {
+            public Engine(int engineVolume, int enginePower, EngineType engineType)
+            {
+                EngineVolume = engineVolume;
+
+                EnginePower = enginePower;
+
+                _engineType = engineType;
+            }
+
             private int engineVolume;
 
             public int EngineVolume
