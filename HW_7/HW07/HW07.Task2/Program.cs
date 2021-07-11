@@ -4,6 +4,7 @@ namespace HW07.Task2
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             int area = 0;

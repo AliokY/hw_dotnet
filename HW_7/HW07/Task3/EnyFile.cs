@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Task3
 {
@@ -14,9 +10,9 @@ namespace Task3
 
         public abstract FileType fileType { get; set; }
 
-        public abstract int fileSize { get; set; }
+        public abstract double fileSize { get; set; }
 
-        public EnyFile(string name, FileType fileType, int fileSize)
+        public EnyFile(string name, FileType fileType, double fileSize)
         {
             id = Guid.NewGuid();
 
