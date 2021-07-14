@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW07.Task2", "HW07.Task2\HW
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW07.Task3", "Task3\HW07.Task3.csproj", "{42A07FF8-7B9D-4329-AA0E-F5F4A72E5D0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW07.Task4.Booking.Com", "HW07.Task4\HW07.Task4.Booking.Com.csproj", "{FC7C8FFB-9827-44F8-A9A8-47511E53D668}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{42A07FF8-7B9D-4329-AA0E-F5F4A72E5D0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42A07FF8-7B9D-4329-AA0E-F5F4A72E5D0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42A07FF8-7B9D-4329-AA0E-F5F4A72E5D0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC7C8FFB-9827-44F8-A9A8-47511E53D668}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC7C8FFB-9827-44F8-A9A8-47511E53D668}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC7C8FFB-9827-44F8-A9A8-47511E53D668}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC7C8FFB-9827-44F8-A9A8-47511E53D668}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
