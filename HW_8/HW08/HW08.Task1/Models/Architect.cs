@@ -1,12 +1,12 @@
 ﻿namespace HW08.Task1
 {
-    class TeamLeader : Engineer
+    class Architect : Engineer
     {
-        public override Position CurrentPositioin { get; set; } = Position.TeamLeader;
+        public override Position CurrentPositioin { get; set; } = Position.Architect;
 
-        public override int SalaryCoeff { get; set; } = 8;
+        public override int SalaryCoeff { get; set; } = 12;
 
-        public override int CurrentPremium { get; set; } = 500;
+        public override int CurrentPremium { get; set; } = 1000;
 
         private int _currentSalary;
         public override int CurrentSalary
@@ -24,7 +24,7 @@
             }
         }
         private EnglishLevel _englishLevel;
-        public override EnglishLevel englishLevel 
+        public override EnglishLevel englishLevel
         {
             get
             {
@@ -39,7 +39,7 @@
             }
         }
 
-        public TeamLeader(string name, string surname, int experience, string[] responsibilities, string[] technologies, EnglishLevel englishLevel, string gitHubLink) :
+        public Architect(string name, string surname, int experience, string[] responsibilities, string[] technologies, EnglishLevel englishLevel, string gitHubLink) :
             base(name, surname, experience, responsibilities, technologies, englishLevel, gitHubLink)
         {
             CurrentSalary = BaseSalary * SalaryCoeff + CurrentPremium;
@@ -51,3 +51,4 @@
         }
     }
 }
+

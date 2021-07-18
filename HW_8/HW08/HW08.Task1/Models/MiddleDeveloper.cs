@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HW08.Task1
+﻿namespace HW08.Task1
 {
     class MiddleDeveloper : Engineer
     {
-        private const int SalaryCoeff = 3;
+        public override Position CurrentPositioin { get; set; } = Position.MiddleDeveloper;
+
+        public override int SalaryCoeff { get; set; } = 3;
 
         private int _currentSalary;
         public override int CurrentSalary
@@ -25,16 +21,32 @@ namespace HW08.Task1
                 }
             }
         }
-        
-        public MiddleDeveloper(string name, string surname, int experience, string[] responsibilities, string[] technologies, string gitHubLink) : 
-            base(name, surname, experience, responsibilities, technologies, gitHubLink)
+
+        private EnglishLevel _englishLevel;
+        public override EnglishLevel englishLevel
+        {
+            get
+            {
+                return _englishLevel;
+            }
+            set
+            {
+                if (EnglishLevel.B1 <= value)
+                {
+                    _englishLevel = value;
+                }
+            }
+        }
+
+        public MiddleDeveloper(string name, string surname, int experience, string[] responsibilities, string[] technologies, EnglishLevel englishLevel, string gitHubLink) :
+            base(name, surname, experience, responsibilities, technologies, englishLevel, gitHubLink)
         {
             CurrentSalary = BaseSalary * SalaryCoeff;
         }
 
-        public override void GetSalary()
+        public override int GetSalary()
         {
-            Console.WriteLine($"Current salary - {CurrentSalary}$");
+            return CurrentSalary;
         }
     }
 }
