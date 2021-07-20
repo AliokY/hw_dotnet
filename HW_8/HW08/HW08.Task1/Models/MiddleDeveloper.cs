@@ -31,15 +31,15 @@
             }
             set
             {
-                if (EnglishLevel.B1 <= value)
+                if (Task1.EnglishLevel.B1 <= value)
                 {
                     _englishLevel = value;
                 }
             }
         }
 
-        public MiddleDeveloper(string name, string surname, int experience, string[] responsibilities, string[] technologies, EnglishLevel englishLevel, string gitHubLink) :
-            base(name, surname, experience, responsibilities, technologies, englishLevel, gitHubLink)
+        public MiddleDeveloper(string name, string surname, int experience, string[] responsibilities, string[] technologies, 
+            EnglishLevel englishLevel, string gitHubLink) : base(name, surname, experience, responsibilities, technologies, englishLevel, gitHubLink)
         {
             CurrentSalary = BaseSalary * SalaryCoeff;
         }

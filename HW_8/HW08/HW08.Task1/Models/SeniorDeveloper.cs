@@ -32,7 +32,7 @@
             }
             set
             {
-                if (EnglishLevel.B2 <= value)
+                if (Task1.EnglishLevel.B2 <= value)
                 {
                     _englishLevel = value;
                 }

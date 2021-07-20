@@ -32,7 +32,7 @@
             }
             set
             {
-                if (EnglishLevel.C1 == value)
+                if (Task1.EnglishLevel.C1 == value)
                 {
                     _englishLevel = value;
                 }

@@ -107,7 +107,7 @@ namespace HW08.Task1
 
         internal static Engineer[] InitializationStaff()
         {
-            mainStaff = new Engineer[12];
+            mainStaff = new Engineer[13];
 
             mainStaff[0] = new JuniorDeveloper("Joseph", "Evans", 1, juniorResponsibilities, juniorTechnologies, EnglishLevel.A2, "https://github.com/JosephEvans");
             mainStaff[1] = new JuniorDeveloper("Danny", "Adamson", 1, juniorResponsibilities, juniorTechnologies, EnglishLevel.A2, "https://github.com/DannyAdamson");
@@ -159,6 +159,18 @@ namespace HW08.Task1
         {
             Array.Sort(mainStaff, new ExperienceComparer());
             Array.Reverse(mainStaff);
+        }
+
+        internal static string GetEngineerInfo(Engineer engineer)
+        {
+            string engineerInfo = $"Company: {engineer.Company}," +
+                $"full name: {engineer.Name} {engineer.Surname}," +
+                $"experience {engineer.Experience}, " +
+                $"title {engineer.CurrentPositioin}," +
+                $"current salary: {engineer.CurrentSalary}," +
+                $"GitHub: {engineer.GitHubLink}";
+
+            return engineerInfo;
         }
     }
 }
