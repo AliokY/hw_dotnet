@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW02.MotorcycleRepo", "HW02.MotorcycleRepo\HW02.MotorcycleRepo.csproj", "{F5BEA039-A3AC-4701-8CA6-FECB53FE4BCC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW13.MotorcycleRepo", "HW02.MotorcycleRepo\HW13.MotorcycleRepo.csproj", "{F5BEA039-A3AC-4701-8CA6-FECB53FE4BCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW13.Task2.Queue", "HW13.Task2.Queue\HW13.Task2.Queue.csproj", "{2115C4C8-7585-44E2-BF4E-D5A714441DEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW13.Task2.Queue", "HW13.Task2.Queue\HW13.Task2.Queue.csproj", "{2115C4C8-7585-44E2-BF4E-D5A714441DEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
