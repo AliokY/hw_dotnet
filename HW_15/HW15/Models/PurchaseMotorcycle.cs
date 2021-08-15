@@ -2,7 +2,7 @@
 
 namespace HW15.Task1.Models
 {
-    class PurchaseMotorcycle
+    class PurchaseMotorcycle 
     {
         public string Model { get; set; }
         public int Odometer { get; set; }

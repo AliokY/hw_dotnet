@@ -9,7 +9,9 @@ namespace HW15.Task1
     {
         public override bool IsValid(object value)
         {
-            if (value is null)
+            bool typeChecking = value is string;
+
+            if (value is null || !typeChecking)
             {
                 return false;
             }
