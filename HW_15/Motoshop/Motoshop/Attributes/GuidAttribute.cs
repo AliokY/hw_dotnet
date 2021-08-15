@@ -8,16 +8,14 @@ namespace Motoshop.Models.Attributes
     {
         public override bool IsValid(object value)
         {
-            bool parseResult = Guid.TryParse(value.ToString(), out Guid id);
-
-            if (parseResult)
-            {
-                return true;
-            }
-            else
+            if (value is null)
             {
                 return false;
             }
+
+            bool parseResult = Guid.TryParse(value.ToString(), out Guid _);
+
+            return parseResult;
         }
     }
 }

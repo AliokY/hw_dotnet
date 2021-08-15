@@ -24,6 +24,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.ImagePreview)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MadeIn)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -40,7 +43,10 @@
                 @Html.DisplayFor(modelItem => item.Model)
             </td>
             <td>
-                <img src="@Html.DisplayFor(modelItem => item.ImagePreview)"/>
+                <img src="@Html.DisplayFor(modelItem => item.ImagePreview)" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MadeIn)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

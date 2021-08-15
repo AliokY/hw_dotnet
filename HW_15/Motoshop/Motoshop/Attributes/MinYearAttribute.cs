@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Motoshop.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,20 +16,15 @@ namespace Motoshop.Attributes
         }
         public string GetErrorMessage() => $"Motorcycle must be made no early than {MinYear}";
 
-        public override bool IsValid(object value)
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             var yearOfIssue = ((DateTime)value).Year;
 
             if (MinYear <= yearOfIssue && yearOfIssue <= DateTime.Now.Year)
             {
-                return true;
+                return new ValidationResult(GetErrorMessage());
             }
-            else
-            {
-                Func<string>(GetErrorMessage());
-
-                return false;
-            }
+            return ValidationResult.Success;
         }
     }
 }
