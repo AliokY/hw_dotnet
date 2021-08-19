@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace HW04.Task4
 {
@@ -18,6 +19,17 @@ namespace HW04.Task4
                 linesVerse[i] = linesVerse[i].Replace("О", "А");
             }
             foreach (string line in linesVerse)
+            {
+                Console.WriteLine(line);
+            }
+            Console.ReadKey();
+
+            // realization with LINQ
+            var result = from line in linesVerse
+                         let newLine = line.Replace("о", "а").Replace("О", "А")
+                         select newLine;
+
+            foreach (var line in result)
             {
                 Console.WriteLine(line);
             }

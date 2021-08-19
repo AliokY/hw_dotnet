@@ -5,6 +5,27 @@ namespace HW04.Task5
 {
     class Program
     {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Please, input several words:");
+            string wordsLine = Console.ReadLine();
+
+            LinqUsing linqUsing = new LinqUsing();
+
+            //string str = SwapWords(wordsLine);
+
+            //int symbolQuantity = CountAllSymbols(wordsLine);
+            //Console.WriteLine(symbolQuantity);
+
+            //string[] newArray = SortString(wordsLine);
+
+            string result = linqUsing.DelLongestWordLinq(wordsLine);
+
+            Console.WriteLine(result);
+
+            Console.ReadKey();
+        }
+
         private static string DeleteLongestWord(string str)
         {
             int index = 0;
@@ -135,26 +156,6 @@ namespace HW04.Task5
             string[] newArray = SelectionSort(strArray);
 
             return newArray;
-        }
-
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Please, input several words:");
-            string wordsLine = Console.ReadLine();
-
-            //string str = SwapWords(wordsLine);
-
-            //int symbolQuantity = CountAllSymbols(wordsLine);
-            //Console.WriteLine(symbolQuantity);
-
-            string[] newArray = SortString(wordsLine);
-
-            foreach (var item in newArray)
-            {
-                Console.WriteLine(item);
-            }
-
-            Console.ReadKey();
         }
     }
 }
