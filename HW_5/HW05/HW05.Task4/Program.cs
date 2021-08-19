@@ -49,7 +49,7 @@ namespace HW05.Task4
             for (int i = 0; i < addressesArray.Length; i++)
             {
                 // check "if the address contains the entered zip code, then"
-                if (addressesArray[i].EndsWith(zipCode))
+                if (addressesArray[i].EndsWith(zipCode, StringComparison.Ordinal))
                 {
                     // remove the zip code from the address
                     addressesArray[i] = addressesArray[i].Remove(addressesArray[i].Length - 9, 9);
@@ -62,7 +62,7 @@ namespace HW05.Task4
             string[] necessaryAdressesArray = necessaryAdresses.ToArray();
 
             // creating a list of required house numbers
-            StringBuilder houseNumbers = new StringBuilder();
+            List<string> houseNumbers = new List<string>();
 
             // go through each element of the array of necessary addresses
             for (int i = 0; i < necessaryAdressesArray.Length; i++)
@@ -96,7 +96,7 @@ namespace HW05.Task4
                     }
                 }
                 // add the resulting house number to the corresponding list
-                houseNumbers.Append(houseNumber + ',');
+                houseNumbers.Add(houseNumber);
 
                 // reset the value of the variable "houseNumber"
                 houseNumber = null;
@@ -113,6 +113,10 @@ namespace HW05.Task4
             {
                 zipCodeAddresses.Append(necessaryAdressesArray[i] + ',');
             }
+
+            // convert the list of addresses home to an array
+            string[] houseNumbersToZipCodeArray = houseNumbers.ToArray();
+
             // enter the constant for the length of the zip code (including the colon)
             const int ZipCodeLength = 9;
 
@@ -131,7 +135,10 @@ namespace HW05.Task4
                 zipCodeAddresses.Append('/');
 
                 // add all house numbers separated by commas to the address line
-                zipCodeAddresses.Append(houseNumbers);
+                for (int i = 0; i < houseNumbersToZipCodeArray.Length; i++)
+                {
+                    zipCodeAddresses.Append(houseNumbersToZipCodeArray[i] + ',');
+                }
                 // remove the last extra comma in the string
                 zipCodeAddresses.Remove(zipCodeAddresses.Length - 1, 1);
             }
