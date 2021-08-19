@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 
 namespace HW04.Task3
 {
@@ -16,6 +17,8 @@ namespace HW04.Task3
             }
 
             Stopwatch sw = new Stopwatch();
+
+            // single performance time -240,23 ms
             sw.Start();
             int k = 1;
             long temp;
@@ -36,10 +39,18 @@ namespace HW04.Task3
             Console.Write("Runtime of my reverse method: ");
             Console.WriteLine(sw.Elapsed.TotalMilliseconds + " ms");
 
+            // single performance time - 97,66 ms
             sw.Start();
             Array.Reverse(randomArray);
             sw.Stop();
             Console.Write("Runtime of Array.Reverse method: ");
+            Console.WriteLine(sw.Elapsed.TotalMilliseconds + " ms");
+
+            // single performance time 6,84 ms
+            sw.Start();
+            var reverseArray = randomArray.Reverse();
+            sw.Stop();
+            Console.Write("Runtime of LINQ.Reverse method: ");
             Console.WriteLine(sw.Elapsed.TotalMilliseconds + " ms");
 
             Console.ReadKey();
