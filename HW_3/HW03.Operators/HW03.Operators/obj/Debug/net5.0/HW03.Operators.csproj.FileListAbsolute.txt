@@ -1,0 +1,15 @@
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Operators\HW03.Operators\bin\Debug\net5.0\HW03.Operators.exe
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Operators\HW03.Operators\bin\Debug\net5.0\HW03.Operators.deps.json
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Operators\HW03.Operators\bin\Debug\net5.0\HW03.Operators.runtimeconfig.json
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Operators\HW03.Operators\bin\Debug\net5.0\HW03.Operators.runtimeconfig.dev.json
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Operators\HW03.Operators\bin\Debug\net5.0\HW03.Operators.dll
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Operators\HW03.Operators\bin\Debug\net5.0\ref\HW03.Operators.dll
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Operators\HW03.Operators\bin\Debug\net5.0\HW03.Operators.pdb
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Operators\HW03.Operators\obj\Debug\net5.0\HW03.Operators.GeneratedMSBuildEditorConfig.editorconfig
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Operators\HW03.Operators\obj\Debug\net5.0\HW03.Operators.AssemblyInfoInputs.cache
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Operators\HW03.Operators\obj\Debug\net5.0\HW03.Operators.AssemblyInfo.cs
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Operators\HW03.Operators\obj\Debug\net5.0\HW03.Operators.csproj.CoreCompileInputs.cache
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Operators\HW03.Operators\obj\Debug\net5.0\HW03.Operators.dll
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Operators\HW03.Operators\obj\Debug\net5.0\ref\HW03.Operators.dll
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Operators\HW03.Operators\obj\Debug\net5.0\HW03.Operators.pdb
+D:\Учёба\IT-Academy\Web 1\Home Work\HW_3\HW03.Operators\HW03.Operators\obj\Debug\net5.0\HW03.Operators.genruntimeconfig.cache
