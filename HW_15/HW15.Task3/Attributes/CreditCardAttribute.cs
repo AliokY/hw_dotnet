@@ -20,14 +20,7 @@ namespace HW15.Task3
 
             Match match = regex.Match(value.ToString());
 
-            if (match.Success)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return match.Success;
         }
     }
 }

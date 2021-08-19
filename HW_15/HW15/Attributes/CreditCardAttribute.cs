@@ -22,14 +22,7 @@ namespace HW15.Task1
 
             Match match = regex.Match(value.ToString());
 
-            if (match.Success)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return match.Success;
         }
     }
 }
