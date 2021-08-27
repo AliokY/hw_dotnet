@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace HW05.Task4
 {
@@ -42,27 +44,15 @@ namespace HW05.Task4
             // create an array from a string of addresses, where each element is a separate address
             string[] addressesArray = listOfAllClients.Split(',');
 
-            //create an empty list for entering addresses containing the desired zip code
-            List<string> necessaryAdresses = new List<string>();
+            var necessaryAdresses = addressesArray.Where(_ => _.EndsWith(zipCode)).Select(_ => _.Remove(_.Length - 9, 9));
 
-            // iteration over each element of the address array
-            for (int i = 0; i < addressesArray.Length; i++)
-            {
-                // check "if the address contains the entered zip code, then"
-                if (addressesArray[i].EndsWith(zipCode, StringComparison.Ordinal))
-                {
-                    // remove the zip code from the address
-                    addressesArray[i] = addressesArray[i].Remove(addressesArray[i].Length - 9, 9);
-
-                    // add the corresponding address without the zip code to the list of required addresses
-                    necessaryAdresses.Add(addressesArray[i]);
-                }
-            }
             // convert the list of required addresses into an array(for faster iteration)
             string[] necessaryAdressesArray = necessaryAdresses.ToArray();
 
             // creating a list of required house numbers
             StringBuilder houseNumbers = new StringBuilder();
+
+            Regex reg = new Regex(@"(\d+)");
 
             // go through each element of the array of necessary addresses
             for (int i = 0; i < necessaryAdressesArray.Length; i++)
@@ -72,6 +62,8 @@ namespace HW05.Task4
                 // go through each character of the corresponding address
                 for (int j = 0; j < necessaryAdressesArray[i].Length; j++)
                 {
+
+                    houseNumber = necessaryAdressesArray[i].Select(_=>_)
                     // check "if the character is a digit, then"
                     if (Char.IsNumber(necessaryAdressesArray[i][j]))
                     {
