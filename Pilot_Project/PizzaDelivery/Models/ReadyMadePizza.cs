@@ -1,24 +1,25 @@
-﻿using PizzaDelivery.Enums;
+﻿using PizzaDelivery.Models.Enums;
+using PizzaDelivery.Models.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PizzaDelivery.Models
 {
-    class ReadyMadePizza
+    class ReadyMadePizza : BasePizza
     {
-        public Guid Id { get; }
-        public string Name { get; private set; }
-        public PizzaSizes Size { get; set; }
-        private int _weight;
-        public int Weight => _weight;
-        public Dictionary<string, decimal> AppliedAdditives { get; set; }
-
-
-        private decimal _finalPrice;
-
-       
+        public PizzaSizes PizzaSize { get; set; }
+        public decimal PizzaPrise { get; set; }
+        public int PizzaWeight { get; set; }
+        public int PizzasNumber { get; set; }
+        public ReadyMadePizza()
+        {}
+        public ReadyMadePizza(string pizzaType, PizzaSizes pizzaSize, 
+            decimal pizzaPrize, int pizzaWeight, List<string> pizzaIngredients)  
+            : base(pizzaType, pizzaIngredients)
+        {
+            PizzaSize = pizzaSize;
+            PizzaPrise = pizzaPrize;
+            PizzaWeight = pizzaWeight;
+        }
     }
 }

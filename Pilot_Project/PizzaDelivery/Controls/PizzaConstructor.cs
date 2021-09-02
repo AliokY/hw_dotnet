@@ -1,35 +1,27 @@
-﻿using PizzaDelivery.Enums;
+﻿using PizzaDelivery.Models;
+using PizzaDelivery.Models.Enums;
 using Spectre.Console;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace PizzaDelivery.Controls
+namespace PizzaDelivery.Console.Controls
 {
-    class PizzaConstructor //console
+    static class PizzaConstructorConsole
     {
-        internal PizzaSizes chosenSize;
-
-        internal DoughTypes chosenDough;
-
-
-        // todo: make it as extension method
-        internal string PizzaChoose()
+        // todo: make it as extension method (staic class!)
+       static internal string PizzaTypeChoose(List<string> pizzaTypes)
         {
             var pizzaType = AnsiConsole.Prompt(
-                new SelectionPrompt<string>()
-                .Title("Выберете пиццу")
-                .PageSize(3)
-                .MoreChoicesText("[grey](Перемещение с помощью стрелок, выбор - Enter)[/]")
-                .AddChoices(new[] { "Маргарита", "Двойной цыплёнок", "Карбонара" }
-                ));
+                  new SelectionPrompt<string>()
+                  .Title("Выберете пиццу")
+                  .PageSize(7)
+                  .MoreChoicesText("[grey](Перемещение с помощью стрелок, выбор - Enter)[/]")
+                  .AddChoices(pizzaTypes));
             return pizzaType;
         }
 
-        internal void ChooseSize()
+        static internal PizzaSizes PizzaSizeChoose()
         {
+            PizzaSizes chosenSize = PizzaSizes.Medium;
             var stringSize = AnsiConsole.Prompt(
                      new SelectionPrompt<string>()
                      .Title("Выберете желаемый [green]размер пиццы[/]:")
@@ -44,39 +36,24 @@ namespace PizzaDelivery.Controls
                     chosenSize = PizzaSizes.Small;
                     break;
                 case "Средняя":
-                    chosenSize = PizzaSizes.Medium;
                     break;
                 case "Большая":
                     chosenSize = PizzaSizes.Large;
                     break;
             }
+            return chosenSize;
         }
 
-        internal void ChooseDough()
+        static internal decimal GetPizzaPrice(string pizzaType, PizzaSizes chosenSize)
         {
-            var stringDough = AnsiConsole.Prompt(
-                new SelectionPrompt<string>()
-                .Title("Выберете [green]тип теста")
-                .PageSize(2)
-                .AddChoices(new[] {"Традиционное", "Тонкое"}
-                ));
-
-            switch (stringDough)
-            {
-                case "Традиционное":
-                    chosenDough = DoughTypes.Traditional;
-                    break;
-                case "Тонкое":
-                    chosenDough = DoughTypes.Thin;
-                    break;
-            }
+            decimal pizzaPrice = PizzaTypes.pizzaPrice[pizzaType][chosenSize];
+            return pizzaPrice;
         }
 
-
-
-
-
-
-
+        static internal int GetPizzaWeight(string pizzaType, PizzaSizes chosenSize)
+        {
+            int pizzaWeight = PizzaTypes.pizzaWeight[pizzaType][chosenSize];
+            return pizzaWeight;
+        }
     }
 }

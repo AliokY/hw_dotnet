@@ -9,4 +9,13 @@
     <PackageReference Include="Spectre.Console" Version="0.41.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PizzaDelivery.Models\PizzaDelivery.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Contracts\" />
+    <Folder Include="Enums\" />
+  </ItemGroup>
+
 </Project>
