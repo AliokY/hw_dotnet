@@ -1,28 +1,30 @@
-﻿using PizzaDelivery.Models;
-using PizzaDelivery.Models.Enums;
+﻿using PizzaDelivery.Models.Pizza;
+using PizzaDelivery.Models.Pizza.Enums;
+using PizzaDelivery.Models.Pizzas;
 using Spectre.Console;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PizzaDelivery.Console.Controls
 {
     static class PizzaConstructorConsole
     {
         // todo: make it as extension method (staic class!)
-       static internal string PizzaTypeChoose(List<string> pizzaTypes)
+       static internal string PizzaTypeChoose(List<PizzaType> pizzaTypes)
         {
             var pizzaType = AnsiConsole.Prompt(
                   new SelectionPrompt<string>()
                   .Title("Выберете пиццу")
-                  .PageSize(7)
+                  .PageSize(pizzaTypes.Count)
                   .MoreChoicesText("[grey](Перемещение с помощью стрелок, выбор - Enter)[/]")
-                  .AddChoices(pizzaTypes));
+                  .AddChoices(pizzaTypes.Select(_ => _.Name).ToList()));
             return pizzaType;
         }
 
-        static internal PizzaSizes PizzaSizeChoose()
+        static internal void PizzaSizeChoose(out string stringSize, out PizzaSize chosenSize)
         {
-            PizzaSizes chosenSize = PizzaSizes.Medium;
-            var stringSize = AnsiConsole.Prompt(
+            chosenSize = PizzaSize.Medium;
+            stringSize = AnsiConsole.Prompt(
                      new SelectionPrompt<string>()
                      .Title("Выберете желаемый [green]размер пиццы[/]:")
                      .PageSize(3)
@@ -33,26 +35,29 @@ namespace PizzaDelivery.Console.Controls
             switch (stringSize)
             {
                 case "Маленькая":
-                    chosenSize = PizzaSizes.Small;
+                    chosenSize = PizzaSize.Small;
                     break;
                 case "Средняя":
                     break;
                 case "Большая":
-                    chosenSize = PizzaSizes.Large;
+                    chosenSize = PizzaSize.Large;
                     break;
             }
-            return chosenSize;
         }
 
-        static internal decimal GetPizzaPrice(string pizzaType, PizzaSizes chosenSize)
+        static internal decimal GetPizzaPrice(string pizzaType, PizzaSize chosenSize,
+             List<PizzaPrice> pizzaPrices)
         {
-            decimal pizzaPrice = PizzaTypes.pizzaPrice[pizzaType][chosenSize];
+            PizzaPrice basePrice = pizzaPrices.Find(_ => _.PizzaPriceToSize.Equals(pizzaType));
+            decimal pizzaPrice = basePrice.PizzaPriceToSize[chosenSize];
             return pizzaPrice;
         }
 
-        static internal int GetPizzaWeight(string pizzaType, PizzaSizes chosenSize)
+        static internal int GetPizzaWeight(string pizzaType, PizzaSize chosenSize,
+            List<PizzaWeight> pizzaWeights)
         {
-            int pizzaWeight = PizzaTypes.pizzaWeight[pizzaType][chosenSize];
+            PizzaWeight baseWeight = pizzaWeights.Find(_ => _.PizzaWeightToSize.Equals(pizzaType));
+            int pizzaWeight = baseWeight.PizzaWeightToSize[chosenSize];
             return pizzaWeight;
         }
     }

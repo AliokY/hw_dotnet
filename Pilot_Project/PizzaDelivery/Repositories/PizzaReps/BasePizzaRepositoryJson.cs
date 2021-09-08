@@ -1,4 +1,4 @@
-﻿using PizzaDelivery.Models.Models;
+﻿using PizzaDelivery.Models.Pizzas;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -51,7 +51,7 @@ namespace PizzaDelivery.Console.Repositories
             }
         }
 
-        public IList<BasePizza> GetAll()
+        public List<BasePizza> GetAll()
         {
             List<BasePizza> pizzaAssortment = new();
 

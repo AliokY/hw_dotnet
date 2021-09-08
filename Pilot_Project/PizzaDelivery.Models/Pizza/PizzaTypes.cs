@@ -1,11 +1,12 @@
-﻿using PizzaDelivery.Models.Enums;
+﻿using PizzaDelivery.Models.Pizzas.Enums;
 using System.Collections.Generic;
 
 namespace PizzaDelivery.Models
 {
     public static class PizzaTypes
     {
-        public static List<string> pizzaTypes { get; } = new List<string>() {
+        // use PascalCase for public elements
+        public static List<string> Pizza_Types { get; } = new List<string>() {
         "Карбонара",
         "Маргарита",
         "Двойной цыплёнок",
@@ -15,12 +16,12 @@ namespace PizzaDelivery.Models
         "Ветчина и сыр"
         };
 
-        public static Dictionary<string, List<string>> ingredients { get; }
+        public static Dictionary<string, List<string>> Ingredients { get; }
             = new Dictionary<string, List<string>>
             {
                 {"Карбонара",
                     new List<string>
-                    {"Бекон",
+                    {"бекон",
                     "сыры чеддер и пармезан",
                     "моцарелла",
                     "томаты",
@@ -44,7 +45,7 @@ namespace PizzaDelivery.Models
                 },
                 {"Колбаски барбекю",
                     new List<string>
-                    {"Острыйе колбаски чорицо",
+                    {"Острые колбаски чоризо",
                     "соус барбекю",
                     "томаты",
                     "красный лук",
@@ -73,14 +74,17 @@ namespace PizzaDelivery.Models
                 }
             };
 
-        public static Dictionary<string, Dictionary<PizzaSizes, decimal>> pizzaPrice { get; } =
+        public static Dictionary<string, Dictionary<PizzaSizes, decimal>> PizzaPrice { get; } =
         new Dictionary<string, Dictionary<PizzaSizes, decimal>>
             {
-                {"Карбонара",
-                new Dictionary<PizzaSizes, decimal>
-                {[PizzaSizes.Small]= 14.90m,
-                [PizzaSizes.Medium] = 21.90m,
-                [PizzaSizes.Large] = 25.90m}
+                {
+                    "Карбонара",
+                    new Dictionary<PizzaSizes, decimal>
+                    {
+                        [PizzaSizes.Small]= 14.90m,
+                    [PizzaSizes.Medium] = 21.90m,
+                    [PizzaSizes.Large] = 25.90m
+                    }
                 },
                 {"Маргарита",
                 new Dictionary<PizzaSizes, decimal>
@@ -120,7 +124,7 @@ namespace PizzaDelivery.Models
                 }
             };
 
-        public static Dictionary<string, Dictionary<PizzaSizes, int>> pizzaWeight { get; } =
+        public static Dictionary<string, Dictionary<PizzaSizes, int>> PizzaWeight { get; } =
        new Dictionary<string, Dictionary<PizzaSizes, int>>
            {
                 {"Карбонара",
