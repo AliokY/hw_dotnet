@@ -2,66 +2,37 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PizzaDelivery.Console.Controls
-{
+namespace PizzaDelivery.Models.Cart
+{   
+    // Singleton Pattern Realized
     public class Cart
     {
-        private static List<(PickedPizza, int)> ChosenPizzas { get; set; } = new();
+        public List<PickedPizza> PickedPizza { get; private set; }
 
-        private decimal _totalPrice;
-        public decimal TotalPrice
+        private Cart()
+        {
+            PickedPizza = new List<PickedPizza>();
+        }
+        static Cart uniqueInstance;
+        public static Cart Instance
         {
             get
             {
-                return _totalPrice;
-            }
-            set
-            {
-                foreach (var pizza in ChosenPizzas)
-                {
-                    _totalPrice += pizza.Item1.PizzaPrise * pizza.Item2;
-                }
+                if (uniqueInstance == null)
+                    uniqueInstance = new Cart();
+                return uniqueInstance;
             }
         }
-
-        public void ShowCart(bool status)
-        {
-            if (status)
-            {
-                foreach (var item in ChosenPizzas)
-                {
-                    System.Console.WriteLine();
-                    System.Console.WriteLine($"{item.Item1.PizzaType}, вес {item.Item1.PizzaWeight} г," +
-                        $"количество {item.Item2} шт.");
-                }
-            }
-        }
-
-        public void ChangePizzasNumber()
-        {
-        
-        
-        }
-
-
-    }
-
-
-    public class Cart2 
-    {
-        public Cart2()
+        public decimal TotalSum => PickedPizza.Sum(p => p.Price);
+        public void EmptyCart()
         {
             PickedPizza = new List<PickedPizza>();
         }
 
-        public List<PickedPizza> PickedPizza { get; }
-
-        public decimal TotalSum => PickedPizza.Sum(p => p.PizzaPrice);
-
         public List<CartItem> Items =>
             PickedPizza
-            .GroupBy(p => p.PizzaType)
-            .Select(i => new CartItem(i.Key, i.Count(), i.Sum(a => a.PizzaPrice)))
+            .GroupBy(p => p.Type)
+            .Select(i => new CartItem(i.Key, i.Count(), i.Sum(a => a.Price)))
             .ToList();
     }
 

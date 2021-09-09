@@ -1,5 +1,4 @@
 ﻿using PizzaDelivery.Models.Pizzas;
-using PizzaDelivery.Models.Pizzas.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +9,7 @@ namespace PizzaDelivery.Console.Controls
 {
     static class OrderPerformer
     {
-        
+        public static void FillCart()
+        { }
     }
 }

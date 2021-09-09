@@ -11,7 +11,7 @@ namespace PizzaDelivery.Models.Orders
     {
         public Guid OrderId { get; set; }
         public Guid UserId { get; set; }
-        public List<(ReadyMadePizza, int)> PizzasInOreder { get; set; }
+        public List<(PickedPizza, int)> PizzasInOreder { get; set; }
         public string DeliveryAddress { get; set; }
         public DateTime OrderTime { get; set; }
         public DateTime OrderDeliveryTime { get; set; }
