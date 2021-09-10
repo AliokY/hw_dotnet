@@ -3,6 +3,7 @@ using PizzaDelivery.Models.Pizza;
 using PizzaDelivery.Models.Pizza.Enums;
 using PizzaDelivery.Models.Pizzas;
 using Spectre.Console;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,7 +19,9 @@ namespace PizzaDelivery.Console.Controls
             while (true)
             {
                 PickPizza(pizzaTypes, pizzaIngredients, pizzaPrices, pizzaWeights);
-                cart.PickedPizza.Add(_pickedPizza);
+                IndicateNumberOfPizzas(_pickedPizza, cart);
+
+                System.Console.Clear();
 
                 bool orderStatus = ContinueOrder("Перейти к корзине");
                 if (orderStatus)
@@ -71,7 +74,7 @@ namespace PizzaDelivery.Console.Controls
 
                 System.Console.WriteLine($"Вес пиццы: {pickedPizzaWeight} г, цена: {pickedPizzaPrice} руб.");
 
-                pizzaStatus = ContinueOrder("Добавить пиццу в корзину");
+                pizzaStatus = ContinueOrder("Изменить количество и/или добавить пиццу в корзину");
 
                 if (pizzaStatus) break;
 
@@ -160,15 +163,12 @@ namespace PizzaDelivery.Console.Controls
 
         internal static void ShowCart(Cart cart)
         {
-            if (cart.PickedPizza.Count != 0)
-            {
                 foreach (var item in cart.Items)
                 {
-                    System.Console.WriteLine($"{item.Name} - {item.Count} шт, {item.LineSum} руб.");
+                    System.Console.WriteLine($"{item.Name}. {item.Size}. " +
+                        $"Количесво: {item.Count} шт, {item.LineSum} руб.");
                 }
                 System.Console.WriteLine();
-            }
-            else { System.Console.WriteLine("Корзина пуста."); }
         }
 
         internal static CartStatus ProceedToCheckout()
@@ -193,6 +193,29 @@ namespace PizzaDelivery.Console.Controls
                 cartStatus = CartStatus.ReturnToPick;
             }
             return cartStatus;
+        }
+
+        internal static void IndicateNumberOfPizzas(PickedPizza pickedPizza, Cart cart)
+        {
+            System.Console.WriteLine("Укажите количество пицц:");
+            int pizzasNumber = 1;
+            while (true)
+            {
+                bool result = Int32.TryParse(System.Console.ReadLine(), out pizzasNumber);
+                if (result && 1 <= pizzasNumber && pizzasNumber <= 100)
+                {
+                    break; 
+                }
+                else 
+                {
+                    System.Console.WriteLine("Пожалуйста, введите корректное количество:");
+                    continue;
+                }
+            }
+            for (int i = 1; i <= pizzasNumber; i++)
+            {
+                cart.PickedPizza.Add(pickedPizza);
+            }
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace PizzaDelivery.Models.Cart
-{   
+{
     // Singleton Pattern Realized
     public class Cart
     {
@@ -31,23 +31,34 @@ namespace PizzaDelivery.Models.Cart
 
         public List<CartItem> Items =>
             PickedPizza
-            .GroupBy(p => p.Type)
-            .Select(i => new CartItem(i.Key, i.Count(), i.Sum(a => a.Price)))
+            .GroupBy(t => new
+            {
+                t.Type,
+                t.Size,
+            })
+            .Select(i => new CartItem(
+               i.Key.Type, 
+               i.Key.Size, 
+               i.Count(), 
+               i.Sum(a => a.Price)))
             .ToList();
     }
 
     public class CartItem
     {
         public string Name { get; }
+        public string Size { get; }
 
-        public CartItem(string name, int count = 0, decimal lineSum = 0)
+        public CartItem(string name, string size, int count = 0, decimal lineSum = 0)
         {
             Name = name;
+            Size = size;
             Count = count;
             LineSum = lineSum;
         }
 
-        public int Count { get; }
+        public int Count { get; set; }
         public decimal LineSum { get; }
+
     }
 }
