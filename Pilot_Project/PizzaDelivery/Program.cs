@@ -1,22 +1,13 @@
 ﻿using PizzaDelivery.Console.Controls;
-using PizzaDelivery.Console.Repositories;
 using PizzaDelivery.Console.Repositories.PizzaReps.PizzaStaticRep;
+using PizzaDelivery.Console.Repositories.UsersPeps;
 using PizzaDelivery.Models.Cart;
 using PizzaDelivery.Models.Pizza;
-using PizzaDelivery.Models.Pizza.Enums;
-using PizzaDelivery.Models.Pizzas;
-using Spectre.Console;
-using System;
+using PizzaDelivery.Models.Users;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace PizzaDelivery.Console
 {
-    // todo: 
-    // make cart as a singleton
-
-
-
     class Program
     {
         static void Main(string[] args)
@@ -26,19 +17,26 @@ namespace PizzaDelivery.Console
             //- PizzaDelivery.Models - class library
             //- PizzaDelivery.Logger - class library
 
+            // service/repository registration
+            CustomerRepositoryStatic customerRS = new CustomerRepositoryStatic();
             PizzaTypeStaticRepository pizzaTypeSR = new PizzaTypeStaticRepository();
             PizzaIngredientStaticRepository pizzaIngredientSR = new PizzaIngredientStaticRepository();
             PizzaPraceStaticRepository pizzaPraceSR = new PizzaPraceStaticRepository();
             PizzaWeightStaticRepository pizzaWeightSR = new PizzaWeightStaticRepository();
 
+            // data initialization
+            List<Customer> customers = customerRS.GetAll();
             List<PizzaType> pizzaTypes = pizzaTypeSR.GetAll();
             List<PizzaIngredient> pizzaIngredients = pizzaIngredientSR.GetAll();
             List<PizzaPrice> pizzaPrices = pizzaPraceSR.GetAll();
             List<PizzaWeight> pizzaWeights = pizzaWeightSR.GetAll();
 
+            Customer customer = UserValidator.CustomerValidation(customers, customerRS);
+            System.Console.Clear();
             Cart cart = Cart.Instance;
 
 
+            System.Console.WriteLine($"Здравтсвуйте, {customer.Name}!");
             PizzaPickerConsole.FillCart(cart, pizzaTypes, pizzaIngredients,
             pizzaPrices, pizzaWeights);
 
@@ -46,6 +44,7 @@ namespace PizzaDelivery.Console
 
 
         }
+
 
 
         //static void FillJsonFile(BasePizzaRepositoryJson jsonRep, List<BasePizza> _pizzaAssortment)

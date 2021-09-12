@@ -18,14 +18,19 @@ namespace PizzaDelivery.Console.Controls
         {
             while (true)
             {
+                // user picks a pizza or construct it from ingridients
                 PickPizza(pizzaTypes, pizzaIngredients, pizzaPrices, pizzaWeights);
+
+                // moving the picked pizza to cart
                 IndicateNumberOfPizzas(_pickedPizza, cart);
 
                 System.Console.Clear();
 
+                // user selects a menu point
                 bool orderStatus = ContinueOrder("Перейти к корзине");
                 if (orderStatus)
                 {
+                    // if user goes to the cart - display it
                     ShowCart(cart);
                     CartStatus cartStatus = ProceedToCheckout();
                     if (cartStatus == CartStatus.Checkout)
@@ -55,9 +60,14 @@ namespace PizzaDelivery.Console.Controls
             decimal pickedPizzaPrice;
             int pickedPizzaWeight;
 
+            // while-true - cycle is used to handle the console UI the user interact with
             while (true)
             {
+                // user picks a pizza type
                 pickedPizzaType = PizzaTypeChoose(pizzaTypes);
+
+                System.Console.Clear();
+
                 ShowPizzaIngredients(pickedPizzaType, pizzaIngredients);
 
                 bool pizzaStatus = ContinueOrder("Продолжить");
@@ -66,9 +76,12 @@ namespace PizzaDelivery.Console.Controls
                     System.Console.Clear();
                     continue;
                 }
+
+                // user pick a pizza size
                 PizzaSizeChoose(out string stringSize, out PizzaSize chosenSize);
                 pickedPizzaSize = stringSize;
 
+                // calculating the price and weight based on choosen type and size
                 pickedPizzaPrice = GetPizzaPrice(pickedPizzaType, chosenSize, pizzaPrices);
                 pickedPizzaWeight = GetPizzaWeight(pickedPizzaType, chosenSize, pizzaWeights);
 
@@ -88,9 +101,8 @@ namespace PizzaDelivery.Console.Controls
         {
             var pizzaType = AnsiConsole.Prompt(
                   new SelectionPrompt<string>()
-                  .Title("Выберете пиццу")
+                  .Title("Выберите пиццу")
                   .PageSize(pizzaTypes.Count)
-                  .MoreChoicesText("[grey](Перемещение с помощью стрелок, выбор - Enter)[/]")
                   .AddChoices(pizzaTypes.Select(_ => _.Name).ToList()));
             return pizzaType;
         }
@@ -99,7 +111,7 @@ namespace PizzaDelivery.Console.Controls
         {
             List<PizzaIngredient> pickedPizzaIngredients = pizzaIngredients.Where(_ => _.PizzaTypesList.Contains(pizzaType)).ToList();
 
-            System.Console.WriteLine($"Пицца-{pizzaType}. Ингредиенты:");
+            System.Console.WriteLine($"{pizzaType.ToUpper()} - ингредиенты:");
             foreach (var item in pickedPizzaIngredients)
             {
                 System.Console.WriteLine(item.Name);
@@ -163,12 +175,15 @@ namespace PizzaDelivery.Console.Controls
 
         internal static void ShowCart(Cart cart)
         {
-                foreach (var item in cart.Items)
-                {
-                    System.Console.WriteLine($"{item.Name}. {item.Size}. " +
-                        $"Количесво: {item.Count} шт, {item.LineSum} руб.");
-                }
-                System.Console.WriteLine();
+            foreach (var item in cart.Items)
+            {
+                System.Console.WriteLine($"{item.Name}. {item.Size}. " +
+                    $"Количесво: {item.Count} шт, {item.LineSum} руб.");
+            }
+
+            System.Console.WriteLine();
+            System.Console.WriteLine($"Сумма заказа: {cart.TotalSum} руб.");
+            System.Console.WriteLine();
         }
 
         internal static CartStatus ProceedToCheckout()
@@ -179,9 +194,9 @@ namespace PizzaDelivery.Console.Controls
                 .PageSize(3)
                 .AddChoices(new[]
                 {
-                   "Перейти к оформлению заказа",
+                   "Оформить заказ",
                    "Очистить корзину",
-                    "Вернуться к выбору"
+                   "Вернуться к выбору"
                 }));
 
             if (Equals(cartStatusStr, "Очистить корзину"))
@@ -204,9 +219,9 @@ namespace PizzaDelivery.Console.Controls
                 bool result = Int32.TryParse(System.Console.ReadLine(), out pizzasNumber);
                 if (result && 1 <= pizzasNumber && pizzasNumber <= 100)
                 {
-                    break; 
+                    break;
                 }
-                else 
+                else
                 {
                     System.Console.WriteLine("Пожалуйста, введите корректное количество:");
                     continue;

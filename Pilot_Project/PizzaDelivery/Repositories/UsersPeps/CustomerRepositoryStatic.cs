@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 
 namespace PizzaDelivery.Console.Repositories.UsersPeps
 {
-    class UserRepositoryStatic : IRepository<User>
+    class CustomerRepositoryStatic : IRepository<Customer>
     {
-        public static List<User> _userList = new()
+        public static List<Customer> _userList = new()
         {
-            new User("Сергей", "Serg1989", "vAFEjnDW", "Serg123@gmail.com"),
-            new User("Вадим", "Vadim28", "ykE4busM", "Vadim1992@yandex.ru")
+            new Customer("Сергей", "Serg1989", "vAFEjnDW", "Serg123@gmail.com"),
+            new Customer("Вадим", "Vadim28", "ykE4busM", "Vadim1992@yandex.ru"),
+            new Customer("Дмитрий", "Dmitry94", "m8ntKnRj", "Vadim1992@yandex.ru") 
         };
 
-        public void Add(User user)
+        public void Add(Customer user)
         {
             _userList.Add(user);
         }
@@ -25,30 +26,29 @@ namespace PizzaDelivery.Console.Repositories.UsersPeps
             _userList.RemoveAll(_ => _.Id == Id);
         }
 
-        public List<User> GetAll()
+        public List<Customer> GetAll()
         {
             return _userList;
         }
 
-        public User GetById(Guid Id)
+        public Customer GetById(Guid Id)
         {
             return _userList.Find(_ => _.Id.Equals(Id));
         }
 
-        public void Update(User user)
+        public void Update(Customer customer)
         {
-            User updateUser = GetById(user.Id);
+            Customer updateUser = GetById(customer.Id);
 
             if (updateUser != null)
             {
-                updateUser.Login = user.Login;
-                updateUser.Password = user.Password;
-                updateUser.E_mail = user.E_mail;
+                updateUser.Login = customer.Login;
+                updateUser.Password = customer.Password;
+                updateUser.Email = customer.Email;
             }
             else
             {
                 throw new Exception("Такого пользователя не существует!");
-
             }
         }
     }
