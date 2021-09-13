@@ -1,5 +1,6 @@
 ﻿using PizzaDelivery.Console.Controls;
 using PizzaDelivery.Console.Repositories.OrderReps;
+using PizzaDelivery.Console.Repositories.PizzaReps.PizzaJsonRep;
 using PizzaDelivery.Console.Repositories.PizzaReps.PizzaStaticRep;
 using PizzaDelivery.Console.Repositories.UsersPeps;
 using PizzaDelivery.Models.CartInfo;
@@ -14,25 +15,33 @@ namespace PizzaDelivery.Console
     {
         static void Main(string[] args)
         {
-            // service/repository static registration
-            CustomerRepositoryStatic customerRS = new CustomerRepositoryStatic();
-            PizzaTypeStaticRepository pizzaTypeSR = new PizzaTypeStaticRepository();
-            PizzaIngredientStaticRepository pizzaIngredientSR = new PizzaIngredientStaticRepository();
-            PizzaPraceStaticRepository pizzaPraceSR = new PizzaPraceStaticRepository();
-            PizzaWeightStaticRepository pizzaWeightSR = new PizzaWeightStaticRepository();
-            OrderStaticRepository orderSR = new OrderStaticRepository();
+            //service / repository static registration
+            CustomerRepositoryStatic customerRep = new CustomerRepositoryStatic();
+            PizzaTypeStaticRepository pizzaTypeRep = new PizzaTypeStaticRepository();
+            PizzaIngredientStaticRepository pizzaIngredientRep = new PizzaIngredientStaticRepository();
+            PizzaPraceStaticRepository pizzaPriceRep = new PizzaPraceStaticRepository();
+            PizzaWeightStaticRepository pizzaWeightRep = new PizzaWeightStaticRepository();
+            OrderStaticRepository orderRep = new OrderStaticRepository();
 
-            // data initialization (static)
-            List<Customer> customers = customerRS.GetAll();
-            List<PizzaType> pizzaTypes = pizzaTypeSR.GetAll();
-            List<PizzaIngredient> pizzaIngredients = pizzaIngredientSR.GetAll();
-            List<PizzaPrice> pizzaPrices = pizzaPraceSR.GetAll();
-            List<PizzaWeight> pizzaWeights = pizzaWeightSR.GetAll();
+            // service/repository json registration
+           // CustomerJsonRepository customerRep = new CustomerJsonRepository();
+           // PizzaTypeJsonRepository pizzaTypeRep = new PizzaTypeJsonRepository();
+           // PizzaIngredientJsonRepository pizzaIngredientRep = new PizzaIngredientJsonRepository();
+           // PizzaPriceJsonRepository pizzaPriceRep = new PizzaPriceJsonRepository();
+           // PizzaWeightJsonRepository pizzaWeightRep = new PizzaWeightJsonRepository();
+           // OrderJsonRepository orderRep = new OrderJsonRepository();
+
+            // data initialization 
+            List<Customer> customers = customerRep.GetAll();
+            List<PizzaType> pizzaTypes = pizzaTypeRep.GetAll();
+            List<PizzaIngredient> pizzaIngredients = pizzaIngredientRep.GetAll();
+            List<PizzaPrice> pizzaPrices = pizzaPriceRep.GetAll();
+            List<PizzaWeight> pizzaWeights = pizzaWeightRep.GetAll();
 
 
 
-
-            Customer customer = UserValidatorConsole.CustomerValidation(customers, customerRS);
+            // app launch 
+            Customer customer = UserValidatorConsole.CustomerValidation(customers, customerRep);
             System.Console.Clear();
             Cart cart = Cart.Instance;
 
@@ -40,9 +49,9 @@ namespace PizzaDelivery.Console
             PizzaPickerConsole.FillCart(cart, pizzaTypes, pizzaIngredients,
             pizzaPrices, pizzaWeights);
 
-            string streetName = UserValidatorConsole.ChooseDeliverAdress(customer, customerRS);
+            string streetName = UserValidatorConsole.ChooseDeliverAdress(customer, customerRep);
             Order order = new Order(customer.Id, cart, streetName);
-            OrderPerformerConsole.Checkout(orderSR, order);
+            OrderPerformerConsole.Checkout(orderRep, order);
 
             System.Console.ReadLine();
         }
