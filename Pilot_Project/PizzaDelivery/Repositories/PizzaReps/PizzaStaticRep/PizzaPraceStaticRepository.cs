@@ -68,9 +68,9 @@ namespace PizzaDelivery.Console.Repositories.PizzaReps.PizzaStaticRep
             _pizzaPricesToSize.Add(pizzaPrice);
         }
 
-        public void Delete(Guid Id)
+        public void Delete(Guid id)
         {
-            _pizzaPricesToSize.RemoveAll(_ => _.Id == Id);
+            _pizzaPricesToSize.RemoveAll(_ => _.Id == id);
         }
 
         public List<PizzaPrice> GetAll()

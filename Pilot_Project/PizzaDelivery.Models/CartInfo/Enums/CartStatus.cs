@@ -1,4 +1,4 @@
-﻿namespace PizzaDelivery.Models.Cart
+﻿namespace PizzaDelivery.Models.CartInfo
 {
     public enum CartStatus
     {

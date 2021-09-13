@@ -11,6 +11,7 @@ namespace PizzaDelivery.Models.Users
     public class Customer : User
     {
         public string Email { get; set; }
+        public string CustomerAdress { get; set; }
 
         public Customer(string name, string login, string password, string email)
             : base(name, login, password)

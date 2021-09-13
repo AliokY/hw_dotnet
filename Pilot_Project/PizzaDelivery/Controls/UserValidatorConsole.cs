@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 
 namespace PizzaDelivery.Console.Controls
 {
-    static class UserValidator
+    static class UserValidatorConsole
     {
         // checking in or signing in realize
         internal static Customer CustomerValidation(List<Customer> allUsers, CustomerRepositoryStatic customerRS)
@@ -22,20 +22,27 @@ namespace PizzaDelivery.Console.Controls
             if (customerChoise)
             {
                 singInResultId = SignInToApp(allUsers);
-                currentCustomer = customerRS.GetById(singInResultId);
+                if (singInResultId == default)
+                {
+                    currentCustomer = CreateAccount(customerRS, allUsers);
+                }
+                else
+                {
+                    currentCustomer = customerRS.GetById(singInResultId);
+                }
             }
             else
             {
                 currentCustomer = CreateAccount(customerRS, allUsers);
             }
-            
+
             return currentCustomer;
         }
         /// <summary>
         /// greetings, user choose to sign in or check in to app
         /// </summary>
         /// <returns>false, if user needs to check in</returns>
-        internal static bool SayHello()
+        private static bool SayHello()
         {
             string userChoiseStr = AnsiConsole.Prompt(
                       new SelectionPrompt<string>()
@@ -52,7 +59,7 @@ namespace PizzaDelivery.Console.Controls
         /// user try to sign in
         /// </summary>
         /// <returns>default customer id, if attemt failed </returns>
-        internal static Guid SignInToApp(List<Customer> allUsers)
+        private static Guid SignInToApp(List<Customer> allUsers)
         {
             Guid signInResultId = default;
 
@@ -74,10 +81,12 @@ namespace PizzaDelivery.Console.Controls
                     System.Console.WriteLine("Неверный логин или пароль!");
                     if (ChooseFromTwo("Ввести данные повторно", "Создать аккаунт"))
                     {
+                        System.Console.Clear();
                         continue;
                     }
                     else
                     {
+                        System.Console.Clear();
                         break;
                     }
                 }
@@ -89,7 +98,7 @@ namespace PizzaDelivery.Console.Controls
         /// finds a user in the list of registered
         /// </summary>
         /// <returns>felse, if login and password mismatch with data of registered users</returns>
-        internal static Guid CheckUserData(string userLogin, string userPassword, List<Customer> allUsers)
+        private static Guid CheckUserData(string userLogin, string userPassword, List<Customer> allUsers)
         {
             Customer currentCustomer = allUsers.FirstOrDefault(c => c.Login.Equals(userLogin));
 
@@ -103,7 +112,7 @@ namespace PizzaDelivery.Console.Controls
         }
 
         // simple choise from two items (console)
-        internal static bool ChooseFromTwo(string item1, string item2)
+        private static bool ChooseFromTwo(string item1, string item2)
         {
             string userChoiseStr = AnsiConsole.Prompt(
                         new SelectionPrompt<string>()
@@ -116,7 +125,7 @@ namespace PizzaDelivery.Console.Controls
         }
 
         // creates a new account for the user
-        internal static Customer CreateAccount(CustomerRepositoryStatic customerRS, List<Customer> allUsers)
+        private static Customer CreateAccount(CustomerRepositoryStatic customerRS, List<Customer> allUsers)
         {
             string customerName = CheckInputData(RegexConst.RegName, "Введите Ваше имя:");
 
@@ -154,7 +163,7 @@ namespace PizzaDelivery.Console.Controls
         }
 
         // checks the input data against a pattern 
-        internal static string CheckInputData(string regexExpression, string textMessage)
+        private static string CheckInputData(string regexExpression, string textMessage)
         {
             string inputData;
             Regex regex = new Regex(regexExpression);
@@ -178,5 +187,79 @@ namespace PizzaDelivery.Console.Controls
             }
             return inputData;
         }
+
+        // use the existing address or enter a new one
+        internal static string ChooseDeliverAdress(Customer customer, CustomerRepositoryStatic customerRS)
+        {
+            string deliveryAdress = customer.CustomerAdress;
+
+            if (customer.CustomerAdress != null)
+            {
+                System.Console.WriteLine($"Сохранённый адрес: {customer.CustomerAdress}?");
+                bool customerChoise1 = ChooseFromTwo("Доставить по текущему адресу", "Изменить адрес");
+                if (!customerChoise1)
+                {
+                    deliveryAdress = GetNewDeliverAdress(customer, customerRS);
+                }
+            }
+            else 
+            {
+                deliveryAdress = GetNewDeliverAdress(customer, customerRS);
+            }
+            return deliveryAdress;
+        }
+
+        // obtaining a delivery address and the ability to save it as the main
+        private static string GetNewDeliverAdress(Customer customer, CustomerRepositoryStatic customerRS)
+        {
+            string streetName = CheckInputData(RegexConst.RegStreetName, "Укажите адрес доставки. \n" +
+            "Введите название улицы/проспекта:");
+
+            int houseNumberLimit = 400;
+            System.Console.WriteLine("Укажите номер дома:");
+            int houseNumber = CheckInputNumber(houseNumberLimit);
+
+            int apartmentNumberLimit = 500;
+            System.Console.WriteLine("Укажите номер квартиры:");
+            int apartmentNumber = CheckInputNumber(apartmentNumberLimit);
+
+            System.Console.WriteLine();
+
+            string inputAdress = $"Улица/проспект: {streetName}, дом {houseNumber}, квартира {apartmentNumber}";
+
+            System.Console.WriteLine("Желаете ли Вы сохранить этот адрес как основной?");
+            bool customerChoise2 = ChooseFromTwo("Сохранить адрес", "Продолжить без сохранения");
+            if (customerChoise2)
+            {
+                customer.CustomerAdress = inputAdress;
+                customerRS.Update(customer);
+            }
+
+            System.Console.Clear();
+
+            return inputAdress;
+        }
+
+        private static int CheckInputNumber(int numberLimit)
+        {
+            int number;
+
+            while (true)
+            {
+                bool result = Int32.TryParse(System.Console.ReadLine(), out number);
+                if (result && 1 <= number && number <= numberLimit)
+                {
+                    break;
+                }
+                else
+                {
+                    System.Console.WriteLine("Пожалуйста, введите корректный номер:");
+                    continue;
+                }
+            }
+            return number;
+        }
+
+
     }
 }

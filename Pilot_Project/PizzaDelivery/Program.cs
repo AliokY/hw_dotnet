@@ -1,7 +1,9 @@
 ﻿using PizzaDelivery.Console.Controls;
+using PizzaDelivery.Console.Repositories.OrderReps;
 using PizzaDelivery.Console.Repositories.PizzaReps.PizzaStaticRep;
 using PizzaDelivery.Console.Repositories.UsersPeps;
-using PizzaDelivery.Models.Cart;
+using PizzaDelivery.Models.CartInfo;
+using PizzaDelivery.Models.Orders;
 using PizzaDelivery.Models.Pizza;
 using PizzaDelivery.Models.Users;
 using System.Collections.Generic;
@@ -23,6 +25,7 @@ namespace PizzaDelivery.Console
             PizzaIngredientStaticRepository pizzaIngredientSR = new PizzaIngredientStaticRepository();
             PizzaPraceStaticRepository pizzaPraceSR = new PizzaPraceStaticRepository();
             PizzaWeightStaticRepository pizzaWeightSR = new PizzaWeightStaticRepository();
+            OrderStaticRepository orderSR = new OrderStaticRepository();
 
             // data initialization
             List<Customer> customers = customerRS.GetAll();
@@ -31,18 +34,19 @@ namespace PizzaDelivery.Console
             List<PizzaPrice> pizzaPrices = pizzaPraceSR.GetAll();
             List<PizzaWeight> pizzaWeights = pizzaWeightSR.GetAll();
 
-            Customer customer = UserValidator.CustomerValidation(customers, customerRS);
+            Customer customer = UserValidatorConsole.CustomerValidation(customers, customerRS);
             System.Console.Clear();
             Cart cart = Cart.Instance;
-
 
             System.Console.WriteLine($"Здравтсвуйте, {customer.Name}!");
             PizzaPickerConsole.FillCart(cart, pizzaTypes, pizzaIngredients,
             pizzaPrices, pizzaWeights);
 
+            string streetName = UserValidatorConsole.ChooseDeliverAdress(customer, customerRS);
+            Order order = new Order(customer.Id, cart, streetName);
+            OrderPerformerConsole.Checkout(orderSR, order);
 
-
-
+            System.Console.ReadLine();
         }
 
 

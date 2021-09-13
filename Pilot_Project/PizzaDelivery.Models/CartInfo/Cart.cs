@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PizzaDelivery.Models.Cart
+namespace PizzaDelivery.Models.CartInfo
 {
     // Singleton Pattern Realized
     public class Cart
@@ -56,9 +56,7 @@ namespace PizzaDelivery.Models.Cart
             Count = count;
             LineSum = lineSum;
         }
-
         public int Count { get; set; }
         public decimal LineSum { get; }
-
     }
 }

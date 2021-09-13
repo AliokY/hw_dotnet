@@ -1,22 +1,28 @@
-﻿using PizzaDelivery.Models.Pizzas;
+﻿using PizzaDelivery.Models.CartInfo;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PizzaDelivery.Models.Orders
 {
-    class Order
+    public class Order
     {
         public Guid OrderId { get; set; }
-        public Guid UserId { get; set; }
-        public List<(PickedPizza, int)> PizzasInOreder { get; set; }
+        public Guid CustomerId { get; set; }
+        public Cart CurrentCart { get; set; }
         public string DeliveryAddress { get; set; }
-        public DateTime OrderTime { get; set; }
-        public DateTime OrderDeliveryTime { get; set; }
-        public OrderStatus CurrentStatus { get; set; }
-        public decimal TotalPrice { get; set; }
+        public string OrderTime { get; set; }
+        public string DeliveryTime { get; set; }
+
+        public Order(Guid customerId, Cart currentCart, string deliveryAddress)
+        {
+            OrderId = Guid.NewGuid();
+
+            CustomerId = customerId;
+            CurrentCart = currentCart;
+            DeliveryAddress = deliveryAddress;
+
+            OrderTime = DateTime.Now.ToString("HH:mm");
+            DeliveryTime = DateTime.Now.AddHours(1).ToString("HH:mm");
+        }
     }
 }
 

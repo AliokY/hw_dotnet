@@ -1,6 +1,7 @@
-﻿using PizzaDelivery.Models.Cart;
+﻿using PizzaDelivery.Models.CartInfo;
 using PizzaDelivery.Models.Pizza;
 using PizzaDelivery.Models.Pizza.Enums;
+using PizzaDelivery.Models.Pizza.Exceptions;
 using PizzaDelivery.Models.Pizzas;
 using Spectre.Console;
 using System;
@@ -214,19 +215,38 @@ namespace PizzaDelivery.Console.Controls
         {
             System.Console.WriteLine("Укажите количество пицц:");
             int pizzasNumber = 1;
-            while (true)
+            int pizzasNumberLimit = 20;
+            do
             {
-                bool result = Int32.TryParse(System.Console.ReadLine(), out pizzasNumber);
-                if (result && 1 <= pizzasNumber && pizzasNumber <= 100)
+                try
                 {
+                    pizzasNumber = Int32.Parse(System.Console.ReadLine());
+                    if (pizzasNumberLimit < pizzasNumber)
+                    {
+                        throw new PizzaCountException("В настоящий момент максимально возможное " +
+                            "количество пицц для заказа равно 20 шт.");
+                    }
+                    if (pizzasNumber <= 0)
+                    {
+                        throw new PizzaCountException("Введите корректное число.");
+                    }
+
                     break;
                 }
-                else
+                catch (FormatException)
                 {
-                    System.Console.WriteLine("Пожалуйста, введите корректное количество:");
+                    System.Console.WriteLine("Количество необходимо указать в числовом формате.");
+                    continue;
+                }
+                catch (PizzaCountException pce)
+                {
+                    System.Console.WriteLine(pce.Message);
+
                     continue;
                 }
             }
+            while (true);
+
             for (int i = 1; i <= pizzasNumber; i++)
             {
                 cart.PickedPizza.Add(pickedPizza);
