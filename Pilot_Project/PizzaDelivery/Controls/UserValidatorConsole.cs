@@ -1,4 +1,5 @@
 ﻿using PizzaDelivery.Console.Controls.RegexConstants;
+using PizzaDelivery.Console.Repositories.PizzaReps.PizzaJsonRep;
 using PizzaDelivery.Console.Repositories.UsersPeps;
 using PizzaDelivery.Models.Users;
 using Spectre.Console;
@@ -12,7 +13,7 @@ namespace PizzaDelivery.Console.Controls
     static class UserValidatorConsole
     {
         // checking in or signing in realize
-        internal static Customer CustomerValidation(List<Customer> allUsers, CustomerRepositoryStatic customerRS)
+        internal static Customer CustomerValidation(List<Customer> allUsers, CustomerJsonRepository customerRep)
         {
             Customer currentCustomer;
             Guid singInResultId;
@@ -24,16 +25,16 @@ namespace PizzaDelivery.Console.Controls
                 singInResultId = SignInToApp(allUsers);
                 if (singInResultId == default)
                 {
-                    currentCustomer = CreateAccount(customerRS, allUsers);
+                    currentCustomer = CreateAccount(customerRep, allUsers);
                 }
                 else
                 {
-                    currentCustomer = customerRS.GetById(singInResultId);
+                    currentCustomer = customerRep.GetById(singInResultId);
                 }
             }
             else
             {
-                currentCustomer = CreateAccount(customerRS, allUsers);
+                currentCustomer = CreateAccount(customerRep, allUsers);
             }
 
             return currentCustomer;
@@ -125,7 +126,7 @@ namespace PizzaDelivery.Console.Controls
         }
 
         // creates a new account for the user
-        private static Customer CreateAccount(CustomerRepositoryStatic customerRS, List<Customer> allUsers)
+        private static Customer CreateAccount(CustomerJsonRepository customerRep, List<Customer> allUsers)
         {
             string customerName = CheckInputData(RegexConst.RegName, "Введите Ваше имя:");
 
@@ -157,7 +158,7 @@ namespace PizzaDelivery.Console.Controls
             }
 
             Customer customer = new Customer(customerName, customerLogin, customerPassword, customerEmail);
-            customerRS.Add(customer);
+            customerRep.Add(customer);
 
             return customer;
         }
@@ -189,7 +190,7 @@ namespace PizzaDelivery.Console.Controls
         }
 
         // use the existing address or enter a new one
-        internal static string ChooseDeliverAdress(Customer customer, CustomerRepositoryStatic customerRS)
+        internal static string ChooseDeliverAdress(Customer customer, CustomerJsonRepository customerRep)
         {
             string deliveryAdress = customer.CustomerAdress;
 
@@ -199,18 +200,18 @@ namespace PizzaDelivery.Console.Controls
                 bool customerChoise1 = ChooseFromTwo("Доставить по текущему адресу", "Изменить адрес");
                 if (!customerChoise1)
                 {
-                    deliveryAdress = GetNewDeliverAdress(customer, customerRS);
+                    deliveryAdress = GetNewDeliverAdress(customer, customerRep);
                 }
             }
             else 
             {
-                deliveryAdress = GetNewDeliverAdress(customer, customerRS);
+                deliveryAdress = GetNewDeliverAdress(customer, customerRep);
             }
             return deliveryAdress;
         }
 
         // obtaining a delivery address and the ability to save it as the main
-        private static string GetNewDeliverAdress(Customer customer, CustomerRepositoryStatic customerRS)
+        private static string GetNewDeliverAdress(Customer customer, CustomerJsonRepository customerRep)
         {
             string streetName = CheckInputData(RegexConst.RegStreetName, "Укажите адрес доставки. \n" +
             "Введите название улицы/проспекта:");
@@ -232,7 +233,7 @@ namespace PizzaDelivery.Console.Controls
             if (customerChoise2)
             {
                 customer.CustomerAdress = inputAdress;
-                customerRS.Update(customer);
+                customerRep.Update(customer);
             }
 
             System.Console.Clear();

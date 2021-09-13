@@ -1,6 +1,5 @@
 ﻿namespace PizzaDelivery.Models.Pizzas
 {
-
     public class PickedPizza
     {
         public string Type { get; }

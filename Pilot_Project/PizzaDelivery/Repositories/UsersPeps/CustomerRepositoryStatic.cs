@@ -4,7 +4,7 @@ using PizzaDelivery.Models.Users;
 
 namespace PizzaDelivery.Console.Repositories.UsersPeps
 {
-    class CustomerRepositoryStatic : IRepository<Customer>
+   public class CustomerRepositoryStatic : IRepository<Customer>
     {
         public static List<Customer> _userList = new()
         {

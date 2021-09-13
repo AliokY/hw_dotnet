@@ -10,7 +10,7 @@ namespace PizzaDelivery.Console.Repositories.PizzaReps.PizzaStaticRep
 {
     class PizzaWeightStaticRepository : IRepository<PizzaWeight>
     {
-        private static List<PizzaWeight> _pizzaWeight = new()
+        public static List<PizzaWeight> _pizzaWeight = new()
         {
             new PizzaWeight("Карбонара",
                  new Dictionary<PizzaSize, int>

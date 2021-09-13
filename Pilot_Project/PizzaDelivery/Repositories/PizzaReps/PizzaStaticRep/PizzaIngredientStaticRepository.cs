@@ -6,7 +6,7 @@ namespace PizzaDelivery.Console.Repositories.PizzaReps.PizzaStaticRep
 {
     class PizzaIngredientStaticRepository : IRepository<PizzaIngredient>
     {
-        private static List<PizzaIngredient> _pizzaIngredients = new()
+        public static List<PizzaIngredient> _pizzaIngredients = new()
         {
             new PizzaIngredient("бекон", new List<string>() { "Карбонара" }),
             new PizzaIngredient("сыры чеддер и пармезан", new List<string>()

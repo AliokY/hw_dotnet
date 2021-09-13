@@ -9,7 +9,7 @@ namespace PizzaDelivery.Console.Repositories.PizzaReps.PizzaStaticRep
 {
     class PizzaTypeStaticRepository : IRepository<PizzaType>
     {
-        private static List<PizzaType> _pizzaTypes = new()
+        public static List<PizzaType> _pizzaTypes = new()
         {
             new PizzaType("Карбонара"),
             new PizzaType("Маргарита"),

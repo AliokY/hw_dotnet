@@ -1,15 +1,23 @@
 ﻿using PizzaDelivery.Models.CartInfo;
 using System;
+using System.Runtime.Serialization;
 
 namespace PizzaDelivery.Models.Orders
 {
+    [DataContract]
     public class Order
     {
+        [DataMember]
         public Guid OrderId { get; set; }
+        [DataMember]
         public Guid CustomerId { get; set; }
+        [DataMember]
         public Cart CurrentCart { get; set; }
+        [DataMember]
         public string DeliveryAddress { get; set; }
+        [DataMember]
         public string OrderTime { get; set; }
+        [DataMember]
         public string DeliveryTime { get; set; }
 
         public Order(Guid customerId, Cart currentCart, string deliveryAddress)

@@ -7,7 +7,7 @@ namespace PizzaDelivery.Console.Repositories.PizzaReps.PizzaStaticRep
 {
     class PizzaPraceStaticRepository : IRepository<PizzaPrice>
     {
-        private static List<PizzaPrice> _pizzaPricesToSize = new()
+        public static List<PizzaPrice> _pizzaPricesToSize = new()
         {
             new PizzaPrice("Карбонара",
                 new Dictionary<PizzaSize, decimal>

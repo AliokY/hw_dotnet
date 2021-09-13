@@ -1,4 +1,4 @@
-﻿using PizzaDelivery.Console.Repositories.OrderReps;
+﻿using PizzaDelivery.Console.Repositories.PizzaReps.PizzaJsonRep;
 using PizzaDelivery.Models.Orders;
 using Spectre.Console;
 
@@ -7,14 +7,14 @@ namespace PizzaDelivery.Console.Controls
     static class OrderPerformerConsole
     {
         // confirmation of an order. Displaying complete information about the order
-        public static void Checkout(OrderStaticRepository orderSR, Order order)
+        public static void Checkout(OrderJsonRepository orderRep, Order order)
         {
             ShowOrder(order);
 
             bool userChoice = Confirm();
             if (userChoice)
             {
-                orderSR.Add(order);
+                orderRep.Add(order);
                 System.Console.WriteLine("Заказ принят!");
                 System.Console.WriteLine($"Вашу пиццу доставят до: {order.DeliveryTime}!");
             }

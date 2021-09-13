@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PizzaDelivery.Models.Pizza
 {
-   public class PizzaType
+    [DataContract]
+    public class PizzaType
     {
-        public Guid Id { get; }
+        [DataMember]
+        public Guid Id { get; set; }
+        [DataMember]
         public string Name { get; set; }
         public PizzaType(){}
         public PizzaType(string name)
