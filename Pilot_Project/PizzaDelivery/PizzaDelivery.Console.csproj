@@ -13,9 +13,4 @@
     <ProjectReference Include="..\PizzaDelivery.Models\PizzaDelivery.Models.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Contracts\" />
-    <Folder Include="Enums\" />
-  </ItemGroup>
-
 </Project>

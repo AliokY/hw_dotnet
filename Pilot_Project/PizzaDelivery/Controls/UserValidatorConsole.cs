@@ -1,6 +1,5 @@
 ﻿using PizzaDelivery.Console.Controls.RegexConstants;
 using PizzaDelivery.Console.Repositories.PizzaReps.PizzaJsonRep;
-using PizzaDelivery.Console.Repositories.UsersPeps;
 using PizzaDelivery.Models.Users;
 using Spectre.Console;
 using System;
@@ -213,7 +212,7 @@ namespace PizzaDelivery.Console.Controls
         // obtaining a delivery address and the ability to save it as the main
         private static string GetNewDeliverAdress(Customer customer, CustomerJsonRepository customerRep)
         {
-            string streetName = CheckInputData(RegexConst.RegStreetName, "Укажите адрес доставки. \n" +
+            string streetName = CheckInputData(RegexConst.RegStreetName, "Укажите адрес доставки. " +
             "Введите название улицы/проспекта:");
 
             int houseNumberLimit = 400;
@@ -260,7 +259,5 @@ namespace PizzaDelivery.Console.Controls
             }
             return number;
         }
-
-
     }
 }

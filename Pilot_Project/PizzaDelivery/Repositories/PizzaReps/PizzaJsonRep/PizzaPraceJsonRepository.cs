@@ -9,26 +9,26 @@ namespace PizzaDelivery.Console.Repositories.PizzaReps.PizzaJsonRep
     class PizzaPriceJsonRepository : IRepository<PizzaPrice>
     {
         DataContractJsonSerializer jsonP = new DataContractJsonSerializer(typeof(List<PizzaPrice>));
-        public void Add(PizzaPrice ingredient)
+        public void Add(PizzaPrice price)
         {
-            List<PizzaPrice> pizzaWeights = new();
+            List<PizzaPrice> pizzaPrises = new();
 
             using (FileStream fs = new FileStream("PizzaPrice.json", FileMode.OpenOrCreate))
             {
                 try
                 {
-                    pizzaWeights = (List<PizzaPrice>)jsonP.ReadObject(fs);
+                    pizzaPrises = (List<PizzaPrice>)jsonP.ReadObject(fs);
                 }
                 catch (Exception ex)
                 {
                     System.Console.WriteLine(ex.Message);
                 }
             }
-            pizzaWeights.Add(ingredient);
+            pizzaPrises.Add(price);
 
             using (FileStream fs = new FileStream("PizzaPrice.json", FileMode.Open)) 
             {
-                jsonP.WriteObject(fs, pizzaWeights);
+                jsonP.WriteObject(fs, pizzaPrises);
             }
         }
 
@@ -90,6 +90,7 @@ namespace PizzaDelivery.Console.Repositories.PizzaReps.PizzaJsonRep
                 {
                     throw new Exception("Такого позиции не существует.");
                 }
+                jsonP.WriteObject(fs, pizzaPrises);
             }
         }
     }

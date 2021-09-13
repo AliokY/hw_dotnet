@@ -90,6 +90,7 @@ namespace PizzaDelivery.Console.Repositories.PizzaReps.PizzaJsonRep
                 {
                     throw new Exception("Такого ингредиента не существует.");
                 }
+                jsonP.WriteObject(fs, pizzaIngredients);
             }
         }
     }

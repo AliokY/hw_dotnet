@@ -90,6 +90,7 @@ namespace PizzaDelivery.Console.Repositories.PizzaReps.PizzaJsonRep
                 {
                     throw new Exception("Такого позиции не существует.");
                 }
+                jsonP.WriteObject(fs, pizzaWeights);
             }
         }
     }

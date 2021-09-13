@@ -91,6 +91,10 @@ namespace PizzaDelivery.Console.Repositories.PizzaReps.PizzaJsonRep
                     throw new Exception("Такого заказа не существует.");
                 }
             }
+            using (FileStream fs = new FileStream("Orders.json", FileMode.Open))
+            {
+                jsonP.WriteObject(fs, orders);
+            }
         }
     }
 }

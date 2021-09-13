@@ -74,13 +74,13 @@ namespace PizzaDelivery.Console.Repositories.PizzaReps.PizzaJsonRep
 
         public void Update(Customer customer)
         {
-            List<Customer> pizzaIngredients = new();
+            List<Customer> customers = new();
 
             using (FileStream fs = new FileStream("Customers.json", FileMode.Open))
             {
-                pizzaIngredients = (List<Customer>)jsonP.ReadObject(fs);
+                customers = (List<Customer>)jsonP.ReadObject(fs);
 
-                Customer updateCustomer = pizzaIngredients.Find(_ => _.Id.Equals(customer.Id));
+                Customer updateCustomer = customers.Find(_ => _.Id.Equals(customer.Id));
 
                 if (updateCustomer != null)
                 {

@@ -15,7 +15,9 @@ namespace PizzaDelivery.Console.Controls
             if (userChoice)
             {
                 orderRep.Add(order);
+                System.Console.WriteLine();
                 System.Console.WriteLine("Заказ принят!");
+                System.Console.WriteLine();
                 System.Console.WriteLine($"Вашу пиццу доставят до: {order.DeliveryTime}!");
             }
         }
