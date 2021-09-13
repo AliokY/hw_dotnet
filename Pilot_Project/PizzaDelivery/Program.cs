@@ -14,12 +14,7 @@ namespace PizzaDelivery.Console
     {
         static void Main(string[] args)
         {
-            // -- 
-            //- PizzaDelivery.Console - console app
-            //- PizzaDelivery.Models - class library
-            //- PizzaDelivery.Logger - class library
-
-            // service/repository registration
+            // service/repository static registration
             CustomerRepositoryStatic customerRS = new CustomerRepositoryStatic();
             PizzaTypeStaticRepository pizzaTypeSR = new PizzaTypeStaticRepository();
             PizzaIngredientStaticRepository pizzaIngredientSR = new PizzaIngredientStaticRepository();
@@ -27,12 +22,15 @@ namespace PizzaDelivery.Console
             PizzaWeightStaticRepository pizzaWeightSR = new PizzaWeightStaticRepository();
             OrderStaticRepository orderSR = new OrderStaticRepository();
 
-            // data initialization
+            // data initialization (static)
             List<Customer> customers = customerRS.GetAll();
             List<PizzaType> pizzaTypes = pizzaTypeSR.GetAll();
             List<PizzaIngredient> pizzaIngredients = pizzaIngredientSR.GetAll();
             List<PizzaPrice> pizzaPrices = pizzaPraceSR.GetAll();
             List<PizzaWeight> pizzaWeights = pizzaWeightSR.GetAll();
+
+
+
 
             Customer customer = UserValidatorConsole.CustomerValidation(customers, customerRS);
             System.Console.Clear();

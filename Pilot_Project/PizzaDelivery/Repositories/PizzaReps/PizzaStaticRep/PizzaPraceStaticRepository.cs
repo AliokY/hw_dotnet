@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using PizzaDelivery.Models.Pizza.Enums;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PizzaDelivery.Console.Repositories.PizzaReps.PizzaStaticRep
 {

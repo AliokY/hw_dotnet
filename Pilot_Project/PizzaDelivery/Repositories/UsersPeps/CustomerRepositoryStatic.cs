@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using PizzaDelivery.Models.Users;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PizzaDelivery.Console.Repositories.UsersPeps
 {

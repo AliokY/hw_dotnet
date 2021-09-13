@@ -7,7 +7,6 @@ namespace PizzaDelivery.Console.Repositories.OrderReps
     class OrderStaticRepository : IRepository<Order>
     {
         private static List<Order> _orders = new();
-        
 
         public void Add(Order order)
         {
