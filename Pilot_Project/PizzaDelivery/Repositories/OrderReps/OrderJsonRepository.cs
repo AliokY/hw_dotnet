@@ -56,7 +56,6 @@ namespace PizzaDelivery.Console.Repositories.PizzaReps.PizzaJsonRep
             {
                 orders = (List<Order>)jsonP.ReadObject(fs);
             }
-
             return orders;
         }
 

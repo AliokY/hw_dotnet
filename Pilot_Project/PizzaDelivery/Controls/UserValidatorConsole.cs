@@ -35,7 +35,6 @@ namespace PizzaDelivery.Console.Controls
             {
                 currentCustomer = CreateAccount(customerRep, allUsers);
             }
-
             return currentCustomer;
         }
         /// <summary>
@@ -155,7 +154,6 @@ namespace PizzaDelivery.Console.Controls
                 }
                 else { break; }
             }
-
             Customer customer = new Customer(customerName, customerLogin, customerPassword, customerEmail);
             customerRep.Add(customer);
 
@@ -234,7 +232,6 @@ namespace PizzaDelivery.Console.Controls
                 customer.CustomerAdress = inputAdress;
                 customerRep.Update(customer);
             }
-
             System.Console.Clear();
 
             return inputAdress;

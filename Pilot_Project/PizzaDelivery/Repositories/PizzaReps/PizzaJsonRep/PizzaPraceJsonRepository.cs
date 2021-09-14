@@ -56,7 +56,6 @@ namespace PizzaDelivery.Console.Repositories.PizzaReps.PizzaJsonRep
             {
                 pizzaPrises = (List<PizzaPrice>)jsonP.ReadObject(fs);
             }
-
             return pizzaPrises;
         }
 
@@ -68,7 +67,6 @@ namespace PizzaDelivery.Console.Repositories.PizzaReps.PizzaJsonRep
             {
                 pizzaPrises = (List<PizzaPrice>)jsonP.ReadObject(fs);
             }
-
             return pizzaPrises.Find(_ => _.Id.Equals(id));
         }
 

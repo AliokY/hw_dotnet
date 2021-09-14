@@ -22,6 +22,5 @@ namespace PizzaDelivery.Models.Pizza
             PizzaPriceToSize = pizzaPriceToSize;
             PizzaName = pizzaName;
         }
-
     }
 }

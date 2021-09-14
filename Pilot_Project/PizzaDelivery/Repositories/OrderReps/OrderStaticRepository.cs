@@ -26,7 +26,6 @@ namespace PizzaDelivery.Console.Repositories.OrderReps
         public Order GetById(Guid id)
         {
             return _orders.Find(_ => _.OrderId.Equals(id));
-
         }
 
         public void Update(Order order)

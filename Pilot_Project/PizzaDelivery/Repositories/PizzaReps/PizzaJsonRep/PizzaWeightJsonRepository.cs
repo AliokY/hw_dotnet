@@ -68,7 +68,6 @@ namespace PizzaDelivery.Console.Repositories.PizzaReps.PizzaJsonRep
             {
                 pizzaWeights = (List<PizzaWeight>)jsonP.ReadObject(fs);
             }
-
             return pizzaWeights.Find(_ => _.Id.Equals(id));
         }
 
